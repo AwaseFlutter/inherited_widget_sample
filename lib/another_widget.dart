@@ -20,14 +20,11 @@ class AnotherWidgetState extends State<AnotherWidget> {
   @override
   Widget build(BuildContext context) {
     debugPrint("AnotherWidget is built");
-    final MyWidget myWidget = context.ancestorWidgetOfExactType(MyWidget);
     return Container(
         height: 400,
         decoration: BoxDecoration(color: Colors.cyan),
         child: Column(children: <Widget>[
           Text("AnotherWidget"),
-          Text(
-              "Parent Direct Reference ${myWidget.state?.importantData?.count ?? "empty"}"),
           YetAnotherWidget(importantData: _importantData)
         ]));
   }
