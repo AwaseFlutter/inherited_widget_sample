@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inherited_widget_sample/ImportantData.dart';
+import 'package:inherited_widget_sample/my_widget.dart';
 import 'yet_another_widget.dart';
 
 class AnotherWidget extends StatefulWidget {
@@ -19,11 +20,14 @@ class AnotherWidgetState extends State<AnotherWidget> {
   @override
   Widget build(BuildContext context) {
     debugPrint("AnotherWidget is built");
+    final MyWidget myWidget = context.ancestorWidgetOfExactType(MyWidget);
     return Container(
         height: 400,
         decoration: BoxDecoration(color: Colors.cyan),
         child: Column(children: <Widget>[
           Text("AnotherWidget"),
+          Text(
+              "Parent Direct Reference ${myWidget.state?.importantData?.count ?? "empty"}"),
           YetAnotherWidget(importantData: _importantData)
         ]));
   }

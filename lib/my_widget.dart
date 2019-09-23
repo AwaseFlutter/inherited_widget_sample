@@ -6,10 +6,17 @@ import 'package:inherited_widget_sample/no_ref_to_important_data_widget.dart';
 class MyWidget extends StatefulWidget {
   final String title;
 
+  _MyWidgetState _myWidgetState;
+
+  _MyWidgetState get state => _myWidgetState;
+
   MyWidget({Key key, this.title}) : super(key: key);
 
   @override
-  _MyWidgetState createState() => _MyWidgetState();
+  _MyWidgetState createState() {
+    _myWidgetState = _MyWidgetState();
+    return _myWidgetState;
+  }
 }
 
 class _MyWidgetState extends State<MyWidget> {
