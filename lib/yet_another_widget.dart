@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inherited_widget_sample/ImportantData.kt';
+import 'package:inherited_widget_sample/ImportantData.dart';
 import 'package:inherited_widget_sample/this_is_just_ridiculous_widget.dart';
 
 class YetAnotherWidget extends StatefulWidget {
@@ -18,6 +18,13 @@ class _YetAnotherWidgetState extends State<YetAnotherWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ThisIsJustRidiculousWidget(importantData: _importantData);
+    debugPrint("YetAnotherWidget is built");
+    return Container(
+        height: 300,
+        decoration: BoxDecoration(color: Colors.amber),
+        child: Column(children: <Widget>[
+          Text("YetAnotherWidget"),
+          ThisIsJustRidiculousWidget(importantData: _importantData)
+        ]));
   }
 }

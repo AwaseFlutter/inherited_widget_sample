@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inherited_widget_sample/ImportantData.kt';
+import 'package:inherited_widget_sample/ImportantData.dart';
 
 class ThisIsJustRidiculousWidget extends StatefulWidget {
   final ImportantData importantData;
@@ -19,8 +19,13 @@ class _ThisIsJustRidiculousWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        // ここで_importantDataを利用した処理を行う。
-        );
+    debugPrint("ThisIsJustRidiculousWidget is built");
+    return Container(
+        height: 200,
+        decoration: BoxDecoration(color: Colors.deepPurpleAccent),
+        child: Column(children: <Widget>[
+          Text("ThisIsJustRidiculousWidget"),
+          Text("importantData is ${_importantData.count}")
+        ]));
   }
 }
