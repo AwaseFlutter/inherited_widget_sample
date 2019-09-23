@@ -14,6 +14,7 @@ class MyWidget extends StatefulWidget {
 
 class _MyWidgetState extends State<MyWidget> {
   ImportantData importantData = ImportantData();
+  GlobalKey<AnotherWidgetState> anotherWidgetStateGlobalKey = GlobalKey();
 
   _doImportantThings() {
     setState(() {
@@ -30,7 +31,10 @@ class _MyWidgetState extends State<MyWidget> {
         child: Column(
           children: <Widget>[
             Text("MyWidget"),
-            AnotherWidget(importantData: importantData),
+            Text(
+                "Another Widget Direct Reference ${anotherWidgetStateGlobalKey.currentState?.widget?.importantData?.count ?? "empty"}"),
+            AnotherWidget(
+                key: anotherWidgetStateGlobalKey, importantData: importantData),
             NoRefToImportantDataWidget()
           ],
         ),

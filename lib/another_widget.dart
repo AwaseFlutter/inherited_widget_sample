@@ -10,10 +10,10 @@ class AnotherWidget extends StatefulWidget {
         super(key: key);
 
   @override
-  _AnotherWidgetState createState() => _AnotherWidgetState();
+  AnotherWidgetState createState() => AnotherWidgetState();
 }
 
-class _AnotherWidgetState extends State<AnotherWidget> {
+class AnotherWidgetState extends State<AnotherWidget> {
   ImportantData get _importantData => widget.importantData;
 
   @override
